@@ -17,6 +17,8 @@ using System.Reflection;
 using System.IO;
 using HRHub_API.Contracts;
 using HRHub_API.Services;
+using AutoMapper;
+using HRHub_API.Models.Mappings;
 
 namespace HRHub_API
 {
@@ -32,9 +34,11 @@ namespace HRHub_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+             
+                services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("HRHubConnectionProd")));
+          
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -45,6 +49,8 @@ namespace HRHub_API
                     .AllowAnyMethod()
                     .AllowAnyHeader());
             });
+
+            services.AddAutoMapper(typeof(Maps));
 
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1",new OpenApiInfo 

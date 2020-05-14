@@ -39,7 +39,8 @@ namespace HRHub_API
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
           
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddCors(o=>
@@ -76,7 +77,9 @@ namespace HRHub_API
                }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
+            UserManager<IdentityUser> userManager,
+            RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())
             {
@@ -102,6 +105,7 @@ namespace HRHub_API
 
             app.UseCors("CorsPolicy");
 
+            SeedData.Seed(userManager, roleManager).Wait();
 
             app.UseRouting();
 

@@ -13,6 +13,10 @@ namespace HRHub_API.Models.Mappings
         { 
         CreateMap<reg_eu_Termination, reg_eu_TerminationDTO >().ReverseMap();
         CreateMap<reg_eu_Sector, reg_eu_SectorDTO>().ReverseMap();
+        CreateMap<reg_eu_Sector, reg_eu_SectorCreateDTO>().ReverseMap();
+        CreateMap<reg_eu_Sector, reg_eu_SectorUpdateDTO>().ReverseMap();
+        CreateMap<reg_eu_Sector, reg_eu_SectorDeleteDTO>().ReverseMap();
         }
     }
 }
+ 

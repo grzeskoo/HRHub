@@ -10,9 +10,7 @@ namespace HRHub_API.Controllers
 {
     
 
-    /// <summary>
-    /// THis is a tst controlleg
-    /// </summary>
+  
     [Route("api/[controller]")]
     [ApiController]
     public class HomeController : ControllerBase
@@ -27,7 +25,9 @@ namespace HRHub_API.Controllers
 
         }
 
-        
+        /// <summary>
+        /// THis is a test controller
+        /// </summary>
         // GET: api/Home
         [HttpGet]
         public IEnumerable<string> Get()
@@ -37,7 +37,7 @@ namespace HRHub_API.Controllers
         }
 
         /// <summary>
-        /// Get int value
+        /// Gets int value
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

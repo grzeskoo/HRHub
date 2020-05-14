@@ -37,7 +37,7 @@ namespace HRHub_API
              
                 services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("HRHubConnectionProd")));
+                    Configuration.GetConnectionString("DefaultConnection")));
           
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -66,6 +66,8 @@ namespace HRHub_API
             });
 
             services.AddSingleton<ILoggerService, LoggerService>();
+            services.AddScoped<Ireg_eu_SectorRepository, reg_eu_SectorRepository>();
+
 
             services.AddControllers();
             //services.AddRazorPages();

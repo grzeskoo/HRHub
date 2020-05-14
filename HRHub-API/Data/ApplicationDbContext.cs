@@ -12,7 +12,7 @@ namespace HRHub_API.Data
         public DbSet<reg_eu_Sector> reg_eu_Sector { get; set; }
         public DbSet<reg_eu_Termination> reg_eu_Termination { get; set; }
 
-
+         
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

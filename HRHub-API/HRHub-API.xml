@@ -4,16 +4,49 @@
         <name>HRHub-API</name>
     </assembly>
     <members>
-        <member name="T:HRHub_API.Controllers.HomeController">
+        <member name="M:HRHub_API.Controllers.HomeController.Get">
             <summary>
-            THis is a tst controlleg
+            THis is a test controller
             </summary>
         </member>
         <member name="M:HRHub_API.Controllers.HomeController.Get(System.Int32)">
             <summary>
-            Get int value
+            Gets int value
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HRHub_API.Controllers.reg_eu_SectorController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HRHub_API.Controllers.reg_eu_SectorController.GetSectors">
+            <summary>
+            Get all Sectors
+            </summary>
+            <returns>List of Sectors</returns>
+        </member>
+        <member name="M:HRHub_API.Controllers.reg_eu_SectorController.GetSector(System.Int32)">
+            <summary>
+            Get Sector by id
+            </summary>
+            <param name="id">Sector record </param>
+            <returns></returns>
+        </member>
+        <member name="M:HRHub_API.Controllers.reg_eu_SectorController.Create(HRHub_API.DTOs.reg_eu_SectorCreateDTO)">
+            <summary>
+            Creates Sector
+            </summary>
+            <param name="reg_eu_SectorCreateDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HRHub_API.Controllers.reg_eu_SectorController.Update(System.Int32,HRHub_API.DTOs.reg_eu_SectorUpdateDTO)">
+            <summary>
+            Update sector
+            </summary>
+            <param name="id"></param>
+            <param name="reg_eu_SectorUpdateDTO"></param>
             <returns></returns>
         </member>
     </members>

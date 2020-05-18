@@ -49,6 +49,13 @@
             <param name="reg_eu_SectorUpdateDTO"></param>
             <returns></returns>
         </member>
+        <member name="M:HRHub_API.Controllers.UserController.Register(HRHub_API.DTOs.UserDTO)">
+            <summary>
+            Register new user
+            </summary>
+            <param name="userDTO"></param>
+            <returns></returns>
+        </member>
         <member name="M:HRHub_API.Controllers.UserController.Login(HRHub_API.DTOs.UserDTO)">
             <summary>
             User login 

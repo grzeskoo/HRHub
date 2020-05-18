@@ -19,6 +19,9 @@ using HRHub_API.Contracts;
 using HRHub_API.Services;
 using AutoMapper;
 using HRHub_API.Models.Mappings;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace HRHub_API
 {
@@ -52,6 +55,20 @@ namespace HRHub_API
             });
 
             services.AddAutoMapper(typeof(Maps));
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(o => {
+                    o.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = Configuration["Jwt:Issuer"],
+                        ValidAudience = Configuration["Jwt:Issuer"],
+                        IssuerSigningKey = new  SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+
+                    };
+                });
 
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1",new OpenApiInfo 

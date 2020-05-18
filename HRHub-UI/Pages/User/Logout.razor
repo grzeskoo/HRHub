@@ -1,0 +1,16 @@
+﻿@page "/logout"
+
+@using HRHub_UI.Contracts
+
+@inject IAuthenticationRepository _authrepo
+@inject NavigationManager _navMan
+
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await _authrepo.Logout();
+        _navMan. NavigateTo("/");
+    }
+}
